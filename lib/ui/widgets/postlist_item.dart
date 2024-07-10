@@ -4,12 +4,12 @@ import 'package:provider_arc/core/models/post.dart';
 class PostListItem extends StatelessWidget {
   final Post post;
   final Function onTap;
-  const PostListItem({this.post, this.onTap});
+  const PostListItem({required this.post, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: onTap as void Function()?,
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
         padding: EdgeInsets.all(10.0),
@@ -25,7 +25,10 @@ class PostListItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(post.title, style: TextStyle(fontWeight: FontWeight.w900, fontSize: 16.0),),
+            Text(
+              post.title,
+              style: TextStyle(fontWeight: FontWeight.w900, fontSize: 16.0),
+            ),
             Text(post.body, maxLines: 2, overflow: TextOverflow.ellipsis)
           ],
         ),

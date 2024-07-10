@@ -6,7 +6,7 @@ import 'package:provider_arc/core/services/api.dart';
 class AuthenticationService {
   final Api _api;
 
-  AuthenticationService({Api api}) : _api = api;
+  AuthenticationService({required Api api}) : _api = api;
 
   StreamController<User> _userController = StreamController<User>();
 

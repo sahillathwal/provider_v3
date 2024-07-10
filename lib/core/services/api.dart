@@ -8,21 +8,21 @@ import 'package:provider_arc/core/models/user.dart';
 /// The service responsible for networking requests
 class Api {
   static const endpoint = 'https://jsonplaceholder.typicode.com';
-  
+
   var client = new http.Client();
 
-  Future<User> getUserProfile(int userId) async {
+  Future<User?> getUserProfile(int userId) async {
     // Get user profile for id
-    var response = await client.get('$endpoint/users/$userId');
+    var response = await client.get('$endpoint/users/$userId' as Uri);
 
     // Convert and return
     return User.fromJson(json.decode(response.body));
   }
 
   Future<List<Post>> getPostsForUser(int userId) async {
-    var posts = List<Post>();
+    var posts = List<Post>.empty(growable: true);
     // Get user posts for id
-    var response = await client.get('$endpoint/posts?userId=$userId');
+    var response = await client.get('$endpoint/posts?userId=$userId' as Uri);
 
     // parse into List
     var parsed = json.decode(response.body) as List<dynamic>;
@@ -36,14 +36,14 @@ class Api {
   }
 
   Future<List<Comment>> getCommentsForPost(int postId) async {
-    var comments = List<Comment>();
+    var comments = List<Comment>.empty(growable: true);
 
     // Get comments for post
-    var response = await client.get('$endpoint/comments?postId=$postId');
+    var response = await client.get('$endpoint/comments?postId=$postId' as Uri);
 
     // Parse into List
     var parsed = json.decode(response.body) as List<dynamic>;
-    
+
     // Loop and convert each item to a Comment
     for (var comment in parsed) {
       comments.add(Comment.fromJson(comment));

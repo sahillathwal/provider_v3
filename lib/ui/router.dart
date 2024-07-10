@@ -8,11 +8,11 @@ import 'package:provider_arc/ui/views/post_view.dart';
 class Router {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case RoutePaths.Home:
-        return MaterialPageRoute(builder: (_) => HomeView());
-      case RoutePaths.Login:
-        return MaterialPageRoute(builder: (_) => LoginView());
-      case RoutePaths.Post:
+      case RoutePaths.home:
+        return MaterialPageRoute(builder: (_) => const HomeView());
+      case RoutePaths.login:
+        return MaterialPageRoute(builder: (_) => const LoginView());
+      case RoutePaths.post:
         var post = settings.arguments as Post;
         return MaterialPageRoute(
             builder: (_) => PostView(

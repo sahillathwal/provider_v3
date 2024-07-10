@@ -4,11 +4,11 @@ import 'package:provider_arc/ui/shared/app_colors.dart';
 
 class PostView extends StatelessWidget {
   final Post post;
-  const PostView({Key? key, required this.post}) : super(key: key);
+  const PostView({super.key, required this.post});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
         backgroundColor: backgroundColor,
         body: Center(child: Text('Post View')));
   }

@@ -3,9 +3,11 @@ import 'package:provider_arc/ui/router.dart' as route;
 
 import 'core/constants/app_contstants.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: RoutePaths.Login,
+      initialRoute: RoutePaths.login,
       onGenerateRoute: route.Router.generateRoute,
     );
   }

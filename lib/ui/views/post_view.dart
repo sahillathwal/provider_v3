@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider_arc/core/models/post.dart';
-import 'package:provider_arc/ui/shared/app_colors.dart';
+import 'package:provider_arc/core/viewmodels/widgets/posts_model.dart';
+import 'package:provider_arc/ui/views/base_widget.dart';
 
 class PostView extends StatelessWidget {
   final Post post;
@@ -8,8 +9,6 @@ class PostView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        backgroundColor: backgroundColor,
-        body: Center(child: Text('Post View')));
+    return const BaseWidget<PostsModel>();
   }
 }

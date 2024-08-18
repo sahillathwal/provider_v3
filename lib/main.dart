@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider_arc/provider_setup.dart';
 import 'package:provider_arc/ui/router.dart' as route;
+import 'package:provider/provider.dart';
 
 import 'core/constants/app_contstants.dart';
 
@@ -10,13 +12,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return MultiProvider(
+      providers: providers,
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        initialRoute: RoutePaths.login,
+        onGenerateRoute: route.Router.generateRoute,
       ),
-      initialRoute: RoutePaths.login,
-      onGenerateRoute: route.Router.generateRoute,
     );
   }
 }
